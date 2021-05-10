@@ -1,67 +1,86 @@
-<%= form_with(model: realestate) do |form| %>
-  <% if realestate.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(realestate.errors.count, "error") %> prohibited this realestate from being saved:</h2>
+<div class="form-container">
+  <%= form_with(model: realestate) do |form| %>
+    <% if realestate.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(realestate.errors.count, "error") %> prohibited this realestate from being saved:</h2>
 
-      <ul>
-        <% realestate.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% realestate.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-fields-container">
+
+      <div class="field">
+        <%= form.label :title %>
+        <%= form.text_field :title, placeholder: 'Classified title up to 155 chars' %>
+      </div>
+
+      <div class="field">
+        <%= form.label :adType, "Type" %>
+        <%= form.select :adType, options_for_select([['Select type', 0], ['Rent', 1], ['Buy', 2], ['Exchange', 3], ['Donate', 4]], form.object.adType) %>
+      </div>
+
+      <div class="lined-fields">
+
+        <div class="lined-fields mw250">
+          <div class="field">
+            <%= form.label :propertyType, "Property Type" %>
+            <%= form.select :propertyType, options_for_select([['Select property type', 0], ['House', 1], ['Shop', 2]], form.object.propertyType) %>
+          </div>
+        </div>
+
+        <div class="lined-fields mw250">
+          <div class="field mlr">
+            <%= form.label :levels %>
+            <%= form.number_field :levels %>
+          </div>
+
+          <div class="field">
+            <%= form.label :bathrooms %>
+            <%= form.number_field :bathrooms %>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="field">
+        <%= form.label :area %>
+        <%= form.text_field :area, placeholder: 'Type in the property\'s area', list: 'datalist', autocomplete: 'on'  %>
+        <datalist id='datalist'></datalist>
+      </div>
+
+      <div class="field hidden">
+        <%= form.label :placeId %>
+        <%= form.text_field :placeId %>
+      </div>
+
+      <div class="field">
+        <%= form.label :price, "Price in Euros" %>
+        <%= form.number_field :price, placeholder: 'Amount' %>
+      </div>
+
+      <div class="field">
+        <%= form.label :description, "Extra description" %>
+        <%= form.text_area :description, placeholder: 'Type here' %>
+      </div>
+
+      <div class="field hidden">
+        <%= form.label :user_id %>
+        <%= form.number_field :user_id %>
+      </div>
+
+    </div>
+    
+    <div class="actions">
+      <%= form.submit "Submit" %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+  <p id="api-error" class="redText" ></p>
+</div>
 
-  <div class="field">
-    <%= form.label :adType %>
-    <%= form.number_field :adType %>
-  </div>
-
-  <div class="field">
-    <%= form.label :propertyType %>
-    <%= form.number_field :propertyType %>
-  </div>
-
-  <div class="field">
-    <%= form.label :levels %>
-    <%= form.number_field :levels %>
-  </div>
-
-  <div class="field">
-    <%= form.label :bathrooms %>
-    <%= form.number_field :bathrooms %>
-  </div>
-
-  <div class="field">
-    <%= form.label :area %>
-    <%= form.text_field :area %>
-  </div>
-
-  <div class="field">
-    <%= form.label :placeId %>
-    <%= form.text_field :placeId %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<%#= javascript_pack_tag 'form' %>
