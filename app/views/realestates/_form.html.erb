@@ -1,0 +1,67 @@
+<%= form_with(model: realestate) do |form| %>
+  <% if realestate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(realestate.errors.count, "error") %> prohibited this realestate from being saved:</h2>
+
+      <ul>
+        <% realestate.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :adType %>
+    <%= form.number_field :adType %>
+  </div>
+
+  <div class="field">
+    <%= form.label :propertyType %>
+    <%= form.number_field :propertyType %>
+  </div>
+
+  <div class="field">
+    <%= form.label :levels %>
+    <%= form.number_field :levels %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bathrooms %>
+    <%= form.number_field :bathrooms %>
+  </div>
+
+  <div class="field">
+    <%= form.label :area %>
+    <%= form.text_field :area %>
+  </div>
+
+  <div class="field">
+    <%= form.label :placeId %>
+    <%= form.text_field :placeId %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
