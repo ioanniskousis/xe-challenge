@@ -25,7 +25,7 @@ class RealestatesController < ApplicationController
 
     respond_to do |format|
       if @realestate.save
-        format.html { redirect_to @realestate, notice: "Realestate was successfully created." }
+        format.html { redirect_to realestates_path, notice: "Realestate was successfully created." }
         format.json { render :show, status: :created, location: @realestate }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class RealestatesController < ApplicationController
   def update
     respond_to do |format|
       if @realestate.update(realestate_params)
-        format.html { redirect_to @realestate, notice: "Realestate was successfully updated." }
+        format.html { redirect_to realestates_path, notice: "Realestate was successfully updated." }
         format.json { render :show, status: :ok, location: @realestate }
       else
         format.html { render :edit, status: :unprocessable_entity }
