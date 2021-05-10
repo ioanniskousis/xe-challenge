@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>XeChallenge</title>
+    <title>XE-Challenge</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="main-container">
+      <main>
+        <%= yield %>
+      </main>
+      <footer>
+        <div class="footer-links">
+          <%= link_to 'New', new_realestate_path %>
+          <%= link_to 'Index', realestates_path %>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
