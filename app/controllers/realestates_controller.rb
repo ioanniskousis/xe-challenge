@@ -1,5 +1,5 @@
 class RealestatesController < ApplicationController
-  before_action :set_realestate, only: %i[ show edit update destroy ]
+  before_action :set_realestate, only: %i[show edit update destroy]
 
   # GET /realestates or /realestates.json
   def index
@@ -7,8 +7,7 @@ class RealestatesController < ApplicationController
   end
 
   # GET /realestates/1 or /realestates/1.json
-  def show
-  end
+  def show; end
 
   # GET /realestates/new
   def new
@@ -16,8 +15,7 @@ class RealestatesController < ApplicationController
   end
 
   # GET /realestates/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /realestates or /realestates.json
   def create
@@ -25,7 +23,7 @@ class RealestatesController < ApplicationController
 
     respond_to do |format|
       if @realestate.save
-        format.html { redirect_to realestates_path, notice: "Realestate was successfully created." }
+        format.html { redirect_to realestates_path, notice: 'Realestate was successfully created.' }
         format.json { render :show, status: :created, location: @realestate }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class RealestatesController < ApplicationController
   def update
     respond_to do |format|
       if @realestate.update(realestate_params)
-        format.html { redirect_to realestates_path, notice: "Realestate was successfully updated." }
+        format.html { redirect_to realestates_path, notice: 'Realestate was successfully updated.' }
         format.json { render :show, status: :ok, location: @realestate }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,19 +49,31 @@ class RealestatesController < ApplicationController
   def destroy
     @realestate.destroy
     respond_to do |format|
-      format.html { redirect_to realestates_url, notice: "Realestate was successfully destroyed." }
+      format.html { redirect_to realestates_url, notice: 'Realestate was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_realestate
-      @realestate = Realestate.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def realestate_params
-      params.require(:realestate).permit(:title, :adType, :propertyType, :levels, :bathrooms, :area, :placeId, :price, :description, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_realestate
+    @realestate = Realestate.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def realestate_params
+    params.require(:realestate).permit(
+      :title,
+      :adType,
+      :propertyType,
+      :levels,
+      :bathrooms,
+      :area,
+      :placeId,
+      :price,
+      :description,
+      :user_id
+    )
+  end
 end

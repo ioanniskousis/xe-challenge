@@ -1,1 +1,1 @@
-json.partial! "realestates/realestate", realestate: @realestate
+json.partial! 'realestates/realestate', realestate: @realestate

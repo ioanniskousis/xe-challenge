@@ -1,1 +1,1 @@
-json.array! @realestates, partial: "realestates/realestate", as: :realestate
+json.array! @realestates, partial: 'realestates/realestate', as: :realestate

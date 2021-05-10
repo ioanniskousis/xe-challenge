@@ -5,5 +5,4 @@ class Realestate < ApplicationRecord
   validates :adType, presence: true, numericality: { greater_than: 0 }
   validates :levels, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :bathrooms, presence: true, numericality: { greater_than_or_equal_to: 0 }
-
 end

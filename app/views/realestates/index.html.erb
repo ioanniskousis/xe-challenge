@@ -6,7 +6,7 @@
 
     <% @realestates.each do |realestate| %>
       <%= link_to edit_realestate_path(realestate), :action => 'go' do %>
-        <%= indexItem(realestate) %>
+        <%= index_item(realestate) %>
       <% end %>
     <% end %>
   </div>
