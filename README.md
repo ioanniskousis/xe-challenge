@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+## javascript code check
+npx eslint app/javascript/packs/form.js
