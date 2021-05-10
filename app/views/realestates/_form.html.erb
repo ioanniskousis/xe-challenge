@@ -29,7 +29,7 @@
         <div class="lined-fields mw250">
           <div class="field">
             <%= form.label :propertyType, "Property Type" %>
-            <%= form.select :propertyType, options_for_select([['Select property type', 0], ['House', 1], ['Shop', 2]], form.object.propertyType) %>
+            <%= form.select :propertyType, options_for_select([['Select property type', 0], ['Residential', 1], ['Commercial', 2], ['Industrial', 3], ['Agricultural', 4], ['Special Purpose', 5]], form.object.propertyType) %>
           </div>
         </div>
 
