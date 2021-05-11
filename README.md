@@ -160,6 +160,7 @@ This project was built using these technologies.
 - Javascript (ES6)
 - HTML5
 - CSS3
+- webpack
 - rspec
 - ESLint
 - rubocop
