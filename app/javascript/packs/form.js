@@ -8,11 +8,10 @@ function inputMatchesOption(inputText) {
   return false;
 }
 
-function parseResponse(response) {
+function parseResponse(places) {
   const datalist = document.getElementById('datalist');
   datalist.innerHTML = '';
 
-  const places = JSON.parse(response);
   places.forEach((place) => {
     const optionText = `${place.mainText}, ${place.secondaryText}`;
     const option = document.createElement('option');
@@ -23,28 +22,22 @@ function parseResponse(response) {
   });
 }
 
-document.getElementById('realestate_area').oninput = (e) => {
+document.getElementById('realestate_area').oninput = async (e) => {
   const inputText = e.target.value;
   if (inputText.length < 3) return;
   if (inputMatchesOption(inputText)) return;
 
-  const apiUrl = 'https://xegr-geography.herokuapp.com/places/autocomplete?input=';
+  const apiUrl = `https://xegr-geography.herokuapp.com/places/autocomplete?input=${inputText}`;
 
-  const xhttp = new XMLHttpRequest();
-
-  xhttp.onreadystatechange = function () {
-    if (this.readyState === 4 && this.status === 200) {
+  await fetch(apiUrl, { mode: 'no-cors' })
+    .then((response) => response.json())
+    .then((json) => {
       document.getElementById('api-error').innerHTML = '';
-      parseResponse(this.responseText);
-    }
-  };
-  xhttp.open('GET', `${apiUrl}${inputText}`, true);
-
-  xhttp.addEventListener('error', (e) => {
-    document.getElementById('api-error').innerHTML = e.type;
-  });
-
-  xhttp.send();
+      parseResponse(json);
+    })
+    .catch((e) => {
+      document.getElementById('api-error').innerHTML = e;
+    });
 };
 
 document.getElementById('realestate_area').onchange = (e) => {

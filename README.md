@@ -41,7 +41,7 @@
     <a href="https://github.com/ioanniskousis/xe-challenge"><strong>Explore the docs</strong></a>
     <br />
     <br />
-    <h1 style="text-align: center"><a href="https://xe-challenge.herokuapp.com">Working Demo</a></h1>
+    <h1 style="text-align: center"><a href="https://serene-garden-89371.herokuapp.com">Working Demo</a></h1>
     <a href="https://github.com/ioanniskousis/xe-challenge/issues">Report Bug</a>
     <a href="https://github.com/ioanniskousis/xe-challenge/issues">Request Feature</a>
   </p>
@@ -79,9 +79,6 @@ The field of the area must be selected from a list which is populated by an API 
 All fields except the Description, Price, and Property Type are required and the number of Levels and the number of Bathrooms must be at least 0.
 
 The *Properties index* view presents a table of all the ads held in the database in a concise form. By clicking an entry, the user can edit each record using a form similar to the data entry form.  
-
-### CAUTION
-In order to connect to the areas API the user must configure their browser to disable Cross-Origin Restrictions
 
 <hr/>
 
@@ -144,7 +141,7 @@ To run testing suite using RSpec in terminal window enter
 
 ## Live version
 
-### You can see it working on heroku [![Heroku](https://pyheroku-badge.herokuapp.com/?app=blooming-meadow-82208)](https://xe-challenge.herokuapp.com)
+### You can see it working on heroku [![Heroku](https://pyheroku-badge.herokuapp.com/?app=blooming-meadow-82208)](https://serene-garden-89371.herokuapp.com)
 
 
 <hr/>
