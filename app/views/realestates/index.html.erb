@@ -3,10 +3,11 @@
   <h1>Properties Index</h1>
 
   <div class="index-container">
-
-    <% @realestates.each do |realestate| %>
-      <%= link_to edit_realestate_path(realestate), :action => 'go' do %>
-        <%= index_item(realestate) %>
+    <% if @realestates %>
+      <% @realestates.each do |realestate| %>
+        <%= link_to edit_realestate_path(realestate), :action => 'go' do %>
+          <%= index_item(realestate) %>
+        <% end %>
       <% end %>
     <% end %>
   </div>
