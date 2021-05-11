@@ -144,7 +144,7 @@ To run testing suite using RSpec in terminal window enter
 
 ## Live version
 
-## You can see it working on heroku [![Heroku](https://pyheroku-badge.herokuapp.com/?app=blooming-meadow-82208)](https://xe-challenge.herokuapp.com)
+### You can see it working on heroku [![Heroku](https://pyheroku-badge.herokuapp.com/?app=blooming-meadow-82208)](https://xe-challenge.herokuapp.com)
 
 
 <hr/>
