@@ -32,7 +32,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/ioanniskousis/xe-challenge" style="display: block; width:160px; height:160px; border-radius: 50%; overflow: hidden;">
-    <img src="app/assets/images/xe.png" alt="Pets Logo" width="200" height="200">
+    <img src="app/assets/images/xe.png" alt="xe Logo" width="200" height="200">
   </a>
   
   <h3 align="center">xe-challenge Application</h3>
@@ -115,12 +115,12 @@ rails generate scaffold realestate title:string adType:integer propertyType:inte
 ## Application Screen Shots
 <hr/>
 
-#### Dasshboard
+#### Entry Form
 
 <img src="app/assets/images/form.png" alt="form">
 <hr />
 
-#### Pets Index
+#### Properties Index
 
 <img src="app/assets/images/index.png" alt="index">
 <hr />
@@ -195,33 +195,3 @@ This project was built using these technologies.
 [stars-url]: https://github.com/ioanniskousis/xe-challenge/stargazers
 [issues-shield]: https://img.shields.io/github/issues/ioanniskousis/xe-challenge.svg?style=flat-square
 [issues-url]: https://github.com/ioanniskousis/xe-challenge/issues
-
-
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-## javascript code check
-npx eslint app/javascript/packs/form.js
