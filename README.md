@@ -119,7 +119,7 @@ The file is included from _form.html.erb with this code line at the very bottom:
 The puspose of this code is to asign a value to the *area* field and a value to the *placeid* field which is hidden and should contain an id referencing to the selected area.   
 
 The *oninput* and *onchange* events of the *area* field are implemented.  
-As the user is typing the *oniput* event is triggered and it's function runs asynchronusly
+As the user is typing the *oninput* event is triggered and it's function runs asynchronously
 - First the content of the *realestate_placeId* is wipped out
 - Then, two validations are perform. The first requires the input to be longer or equal than 3 characters and the second checks the input if it equals to a listed option so it does no other work.
 - Finally, a call to the given API is performed. It is assigned an option 'no-cors' in order to overcome the restriction of Cross-Origin Resource Sharing (CORS). Any error returned from API call is outputed to a red-colored paragraph at the bottom of the form. The response of the API is passed to the function *parseResponse* which populates a datalist connected to the *area* field. Each option of the list is assigned an id attribute equal to the *placeId* field of the returned json structure. From this datalist, the user can select an option to insert into the *area* field.
