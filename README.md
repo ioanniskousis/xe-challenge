@@ -56,8 +56,10 @@
 
 - [About the Application](#about-the-application)
 - [Development](#development)
+- [Code Documentation](#code-documentation)
 - [Screen Shots](#application-screen-shots)
 - [Testing](#testing)
+- [Run the application](#run-the-application)
 - [Live Version](#live-version)
 - [Built With](#built-with)
 - [Contributors](#contributors)
@@ -106,6 +108,24 @@ rails generate scaffold realestate title:string adType:integer propertyType:inte
 ```
 
 <hr/>
+<!-- CODE DOCUMENTATION -->
+
+## Code Documentation
+The majority of the code is straightforward and generated automatically by the framework, but one part plays specific role in the application and needs some explanation. This is the code which handles user's input into the field of the *area* in the new/edit record form, and resides in the file app/javascript/packs/form.js.    
+The file is included from _form.html.erb with this code line at the very bottom:
+```
+<%= javascript_pack_tag 'form' %>
+```
+The puspose of this code is to asign a value to the *area* field and a value to the *placeid* field which is hidden and should contain an id referencing to the selected area.   
+
+The *oninput* and *onchange* events of the *area* field are implemented.  
+As the user is typing the *oniput* event is triggered and it's function runs asynchronusly
+- First the content of the *realestate_placeId* is wipped out
+- Then, two validations are perform. The first requires the input to be longer or equal than 3 characters and the second checks the input if it equals to a listed option so it does no other work.
+- Finally, a call to the given API is performed. It is assigned an option 'no-cors' in order to overcome the restriction of Cross-Origin Resource Sharing (CORS). Any error returned from API call is outputed to a red-colored paragraph at the bottom of the form. The response of the API is passed to the function *parseResponse* which populates a datalist connected to the *area* field. Each option of the list is assigned an id attribute equal to the *placeId* field of the returned json structure. From this datalist, the user can select an option to insert into the *area* field.
+- By selecting an option from the datalist the *onchange* event is triggered and this assigns the id attribute of the selected option to the hidden field *realestate_placeId*
+
+<hr/>
 
 <!-- APPLICTION SCREENSHOTS -->
 
@@ -133,6 +153,22 @@ To run testing suite using RSpec in terminal window enter
 ```
   rspec . --format documentation
 ```
+
+## Run the application
+In order to run the application locally you will need:
+- Fork the repository from the github
+- On your terminal run:
+  - rails db:migrate
+  - bundle install
+  - rails server
+- On your browser link to: localhost:3000/
+
+* you may need to run also:
+  ```
+    npm install -save webpack webpack-cli webpack-dev-server style-loader css-loader script-loader
+  ```
+
+
 
 <hr/>
 

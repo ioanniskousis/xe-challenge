@@ -9,6 +9,7 @@ function inputMatchesOption(inputText) {
 }
 
 function parseResponse(places) {
+  document.getElementById('api-error').innerHTML = '';
   const datalist = document.getElementById('datalist');
   datalist.innerHTML = '';
 
@@ -23,6 +24,7 @@ function parseResponse(places) {
 }
 
 document.getElementById('realestate_area').oninput = async (e) => {
+  document.getElementById('realestate_placeId').value = '';
   const inputText = e.target.value;
   if (inputText.length < 3) return;
   if (inputMatchesOption(inputText)) return;
@@ -32,7 +34,6 @@ document.getElementById('realestate_area').oninput = async (e) => {
   await fetch(apiUrl, { mode: 'no-cors' })
     .then((response) => response.json())
     .then((json) => {
-      document.getElementById('api-error').innerHTML = '';
       parseResponse(json);
     })
     .catch((e) => {
