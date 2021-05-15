@@ -61,3 +61,5 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'hirb'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
+
+gem 'rack-cors', '>= 1.1.0'

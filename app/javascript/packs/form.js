@@ -23,7 +23,7 @@ function parseResponse(places) {
   });
 }
 
-document.getElementById('realestate_area').oninput = async (e) => {
+document.getElementById('realestate_area').oninput = (e) => {
   document.getElementById('realestate_placeId').value = '';
   const inputText = e.target.value;
   if (inputText.length < 3) return;
@@ -31,11 +31,9 @@ document.getElementById('realestate_area').oninput = async (e) => {
 
   const apiUrl = `https://xegr-geography.herokuapp.com/places/autocomplete?input=${inputText}`;
 
-  await fetch(apiUrl, { mode: 'no-cors' })
+  fetch(apiUrl)
     .then((response) => response.json())
-    .then((json) => {
-      parseResponse(json);
-    })
+    .then((json) => parseResponse(json))
     .catch((e) => {
       document.getElementById('api-error').innerHTML = e;
     });
